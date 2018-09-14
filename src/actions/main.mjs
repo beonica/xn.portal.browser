@@ -19,11 +19,15 @@ export default {
     actions.setPortal({ portal });
   },
 
-  setPortal: ({ portal }) => ({
-    client: portal._id,
-    clientData: portal.activation_steps,
-    loadingClientData: false
-  }),
+  setPortal: ({ portal }) => {
+    if (portal) {
+      return {
+        client: portal._id,
+        clientData: portal.activation_steps,
+        loadingClientData: false
+      };
+    }
+  },
 
   setClient: ({ value }) => ({ client: value })
 };

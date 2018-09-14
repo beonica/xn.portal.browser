@@ -8,7 +8,7 @@ export const Main = () => (state, actions) => (
   <main>
     <Jumbotron />
 
-    <div class="container">
+    <div class="container" hidden={state.clientData != null}>
       <div class="row justify-content-md-center">
         <div class="col col-lg-6">
           <div class="spinner" hidden={state.loadingClientData === false} />
@@ -18,11 +18,12 @@ export const Main = () => (state, actions) => (
           >
             <div class="form-group">
               <input
-                class={`form-control form-control-lg + ${
+                autofocus
+                class={`form-control form-control-lg${
                   state.clientData !== null && state.clientData !== undefined
                     ? " is-valid"
                     : ""
-                } + ${state.clientData === null ? " is-invalid" : ""}
+                }${state.clientData === null ? " is-invalid" : ""}
                 `}
                 id="client"
                 oninput={({ target: { value } }) =>
@@ -41,13 +42,24 @@ export const Main = () => (state, actions) => (
       <br />
     </div>
 
-    <div class="container">
-      <pre hidden={state.client.length !== 36 || state.clientData === null}>
-        {JSON.stringify(state.clientData, null, 2)}
-      </pre>
-    </div>
-
-    <div class="container">
+    <div class="container" hidden={state.clientData == null}>
+      <ul class="list-group">
+        {state.clientData &&
+          state.clientData.map(({ check, label }) => (
+            <li class="list-group-item d-flex justify-content-between align-items-center">
+              {label}
+              <span
+                class={`badge badge-pill${
+                  check ? " badge-success" : " badge-warning"
+                }`}
+              >
+                {check ? "Pronto!" : "Processando"}
+              </span>
+            </li>
+          ))}
+      </ul>
+      <br />
+      <hr />
       <div class="row">
         <div class="col-md-6">
           <h2>Contextos</h2>
