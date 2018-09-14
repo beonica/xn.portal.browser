@@ -11,16 +11,27 @@ export const Main = () => (state, actions) => (
     <div class="container">
       <div class="row justify-content-md-center">
         <div class="col col-lg-6">
-          <form>
+          <div class="spinner" hidden={state.loadingClientData === false} />
+          <form
+            hidden={state.loadingClientData === true}
+            style="height: 240px; padding-top: calc(120px - 24px);"
+          >
             <div class="form-group">
               <input
-                class="form-control form-control-lg"
-                id="colFormLabelLg"
+                class={`form-control form-control-lg + ${
+                  state.clientData !== null && state.clientData !== undefined
+                    ? " is-valid"
+                    : ""
+                } + ${state.clientData === null ? " is-invalid" : ""}
+                `}
+                id="client"
                 oninput={({ target: { value } }) =>
-                  actions.inputUUID({ value })
+                  actions.inputClient({ value })
                 }
                 placeholder="Por favor, insira aqui seu código de cliente"
+                style="text-align: center;"
                 type="text"
+                value={state.client}
               />
             </div>
           </form>
@@ -28,6 +39,12 @@ export const Main = () => (state, actions) => (
       </div>
       <hr />
       <br />
+    </div>
+
+    <div class="container">
+      <pre hidden={state.client.length !== 36 || state.clientData === null}>
+        {JSON.stringify(state.clientData, null, 2)}
+      </pre>
     </div>
 
     <div class="container">

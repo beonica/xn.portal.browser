@@ -8,8 +8,8 @@ const appArgs = [state, actions, view, document.getElementById("app")];
 
 if (process.env.NODE_ENV !== "production") {
   import("hyperapp-redux-devtools").then(devtools => {
-    main = devtools(app)(...appArgs);
+    devtools(app)(...appArgs);
   });
 } else {
-  main = app(...appArgs);
+  app(...appArgs);
 }
