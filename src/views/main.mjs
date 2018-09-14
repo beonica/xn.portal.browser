@@ -38,7 +38,7 @@ export const Main = () => (state, actions) => (
           <p>
             <a
               class="btn btn-outline-dark"
-              href={`https://beon-app-context-browser-static-dev/?client=${
+              href={`https://beon-app-context-browser-static-dev.bluemix.net/?client=${
                 state.uuid
               }`}
               role="button"
@@ -53,7 +53,7 @@ export const Main = () => (state, actions) => (
           <p>
             <a
               class="btn btn-outline-dark"
-              href={`https://beon-app-catalog-browser-static-dev/?client=${
+              href={`https://beon-app-catalog-browser-static-dev.bluemix.net/?client=${
                 state.uuid
               }`}
               role="button"
