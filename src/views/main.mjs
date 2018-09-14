@@ -35,13 +35,7 @@ export const Main = () => (state, actions) => (
       <div class="row">
         <div class="col-md-6">
           <h2>Contextos</h2>
-          <p>
-            Veja e crie grupos de produtos, como categorias, coleções etc. Donec
-            id elit non mi {state.uuid} porta gravida at eget metus. Fusce
-            dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh,
-            ut fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.{" "}
-          </p>
+          <p>Veja e crie grupos de produtos, como categorias, coleções etc.</p>
           <p>
             <a
               class="btn btn-outline-dark"
@@ -56,13 +50,7 @@ export const Main = () => (state, actions) => (
         </div>
         <div class="col-md-6">
           <h2>Catálogo</h2>
-          <p>
-            Veja e crie regiões com conteúdo personalizado em suas páginas.
-            Donec id elit non mi porta gravida at eget metus. Fusce dapibus,
-            tellus ac cursus commodo, tortor mauris condimentum nibh, ut
-            fermentum massa justo sit amet risus. Etiam porta sem malesuada
-            magna mollis euismod. Donec sed odio dui.{" "}
-          </p>
+          <p>Veja e crie regiões com conteúdo personalizado em suas páginas.</p>
           <p>
             <a
               class="btn btn-outline-dark"

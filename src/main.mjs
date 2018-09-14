@@ -6,8 +6,6 @@ import view from "./views/index.mjs";
 
 const appArgs = [state, actions, view, document.getElementById("app")];
 
-let main;
-
 if (process.env.NODE_ENV !== "production") {
   import("hyperapp-redux-devtools").then(devtools => {
     main = devtools(app)(...appArgs);
@@ -15,5 +13,3 @@ if (process.env.NODE_ENV !== "production") {
 } else {
   main = app(...appArgs);
 }
-
-main;
