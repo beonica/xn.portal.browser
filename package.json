@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "./src/main.mjs",
   "scripts": {
-    "build": "parcel build ./src/index.html --public-url ./",
+    "build": "rm -r ./dist && parcel build ./src/index.html && cp ./Staticfile ./dist",
+    "deploy": "npm run build && cf push beon-app-portal-static-dev -m 64M -b https://github.com/cloudfoundry/staticfile-buildpack.git",
     "start": "ftl & parcel ./src/index.html --open"
   },
   "keywords": [],
