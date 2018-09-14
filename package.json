@@ -10,13 +10,12 @@
   "keywords": [],
   "author": "Thiago F",
   "dependencies": {
-    "hyperapp": "^1.2.8",
-    "hyperapp-redux-devtools": "^1.1.6",
-    "immer": "^1.6.0"
+    "hyperapp": "^1.2.8"
   },
   "devDependencies": {
     "babel-plugin-transform-react-jsx": "^6.24.1",
     "ftl": "git+https://github.com/slacktracer/ftl.git",
+    "hyperapp-redux-devtools": "^1.1.6",
     "parcel-bundler": "^1.9.7"
   }
 }
