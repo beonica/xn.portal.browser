@@ -3,7 +3,6 @@ import { h } from "hyperapp"; // eslint-disable-line
 import { Jumbotron } from "./jumbotron.mjs";
 
 import "./main.css";
-import "./signin.css";
 
 export const Main = () => (state, actions) => (
   <main>
