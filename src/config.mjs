@@ -1,4 +1,4 @@
-const mode = 0;
+const mode = 1;
 
 export default {
   get backend() {

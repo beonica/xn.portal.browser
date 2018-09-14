@@ -39,26 +39,21 @@ export const Main = () => (state, actions) => (
         </div>
       </div>
       <hr />
-      <br />
     </div>
 
     <div class="container" hidden={state.clientData == null}>
-      <ul class="list-group">
-        {state.clientData &&
-          state.clientData.map(({ check, label }) => (
-            <li class="list-group-item d-flex justify-content-between align-items-center">
-              {label}
-              <span
-                class={`badge badge-pill${
-                  check ? " badge-success" : " badge-warning"
-                }`}
-              >
-                {check ? "Pronto!" : "Processando"}
-              </span>
-            </li>
-          ))}
-      </ul>
-      <br />
+      <div class="d-flex justify-content-center">
+        <div style="width: 15rem;">
+          <br />
+          {state.clientData &&
+            state.clientData.map(({ check, label }) => (
+              <p>
+                {check ? "\u2714 " : "\u26a1 "} {label}
+              </p>
+            ))}
+          <br />
+        </div>
+      </div>
       <hr />
       <div class="row">
         <div class="col-md-6">
@@ -68,7 +63,7 @@ export const Main = () => (state, actions) => (
             <a
               class="btn btn-outline-dark"
               href={`https://beon-app-context-browser-static-dev.mybluemix.net/?client=${
-                state.uuid
+                state.client
               }`}
               role="button"
             >
@@ -83,7 +78,7 @@ export const Main = () => (state, actions) => (
             <a
               class="btn btn-outline-dark"
               href={`https://beon-app-catalog-browser-static-dev.mybluemix.net/?client=${
-                state.uuid
+                state.client
               }`}
               role="button"
             >
