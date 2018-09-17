@@ -2,10 +2,10 @@ import { h } from "hyperapp"; // eslint-disable-line
 
 import "./jumbotron.css";
 
-export const Jumbotron = () => (
+export const Jumbotron = () => state => (
   <div class="jumbotron">
     <div class="container">
-      <h1 class="display-3">Ocean Drop, bem-vindo ao Beon!</h1>
+      <h1 class="display-3">{state.clientName}, bem-vindo ao Beon!</h1>
       <p>
         This is a template for a simple marketing or informational website. It
         includes a large callout called a jumbotron and three supporting pieces

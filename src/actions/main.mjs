@@ -1,12 +1,26 @@
 import * as core from "../core/main.mjs";
 
 export default {
-  checkClient: () => (state, actions) => {
-    const client = window.localStorage.getItem("client");
+  findClient: () => (state, actions) => {
+    const clientKey = new URL(document.location).searchParams.get("key");
 
-    if (client) {
-      actions.inputClient({ value: client });
+    if (clientKey) {
+      const clientName = core.clientKeys.get(clientKey.toLowerCase());
+
+      if (clientName) {
+        const client = window.localStorage.getItem("client");
+
+        if (client) {
+          actions.inputClient({ value: client });
+        }
+
+        return { clientName };
+      }
+
+      return { notFoundKey: clientKey.toUpperCase() };
     }
+
+    return { notFoundKey: null };
   },
 
   inputClient: ({ value }) => (state, actions) => {
@@ -37,6 +51,8 @@ export default {
         loadingClientData: false
       };
     }
+
+    return { clientData: null, loadingClientData: false };
   },
 
   setClient: ({ value }) => ({ client: value })

@@ -1,5 +1,8 @@
 export default {
   client: "",
   clientData: undefined,
-  loadingClientData: false
+  clientKey: "",
+  clientName: "",
+  loadingClientData: false,
+  notFoundKey: ""
 };
