@@ -5,7 +5,7 @@ import { Jumbotron } from "./jumbotron.mjs";
 import "./main.css";
 
 export const Main = () => (state, actions) => (
-  <main>
+  <main oncreate={() => actions.checkClient()}>
     <Jumbotron />
 
     <div class="container" hidden={state.clientData != null}>

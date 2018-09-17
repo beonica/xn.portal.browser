@@ -1,6 +1,14 @@
 import * as core from "../core/main.mjs";
 
 export default {
+  checkClient: () => (state, actions) => {
+    const client = window.localStorage.getItem("client");
+
+    if (client) {
+      actions.inputClient({ value: client });
+    }
+  },
+
   inputClient: ({ value }) => (state, actions) => {
     actions.setClient({ value });
 
@@ -21,6 +29,8 @@ export default {
 
   setPortal: ({ portal }) => {
     if (portal) {
+      window.localStorage.setItem("client", portal._id);
+
       return {
         client: portal._id,
         clientData: portal.activation_steps,
