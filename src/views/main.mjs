@@ -71,6 +71,7 @@ export const Main = () => (state, actions) => {
                     state.client
                   }`}
                   role="button"
+                  target="_blank"
                 >
                   Controle seus contextos &raquo;
                 </a>
@@ -88,6 +89,7 @@ export const Main = () => (state, actions) => {
                     state.client
                   }`}
                   role="button"
+                  target="_blank"
                 >
                   Controle seu catálogo &raquo;
                 </a>
