@@ -48,7 +48,7 @@ export const Main = () => (state, actions) => (
           {state.clientData &&
             state.clientData.map(({ check, label }) => (
               <p>
-                {check ? "\u2714 " : "\u26a1 "} {label}
+                {check ? "\u2714 " : "\u231b "} {label}
               </p>
             ))}
           <br />
