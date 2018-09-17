@@ -1,5 +1,7 @@
 import { h } from "hyperapp"; // eslint-disable-line
 
+import config from "../config.mjs";
+
 import { Jumbotron } from "./jumbotron.mjs";
 
 import "./main.css";
@@ -67,9 +69,7 @@ export const Main = () => (state, actions) => {
               <p>
                 <a
                   class="btn btn-outline-dark"
-                  href={`https://beon-app-context-browser-static-dev.mybluemix.net/?client=${
-                    state.client
-                  }`}
+                  href={`${config.context}?key=${state.client}`}
                   role="button"
                   target="_blank"
                 >
@@ -85,9 +85,7 @@ export const Main = () => (state, actions) => {
               <p>
                 <a
                   class="btn btn-outline-dark"
-                  href={`https://beon-app-catalog-browser-static-dev.mybluemix.net/?client=${
-                    state.client
-                  }`}
+                  href={`${config.catalog}?key=${state.client}`}
                   role="button"
                   target="_blank"
                 >
