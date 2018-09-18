@@ -43,10 +43,13 @@ export default {
 
   setPortal: ({ portal }) => {
     if (portal) {
-      window.localStorage.setItem("client", portal._id);
+      window.localStorage.setItem(
+        "client",
+        portal.clientKey ? portal.clientKey : portal._id
+      );
 
       return {
-        client: portal._id,
+        client: portal.clientKey ? portal.clientKey : portal._id,
         clientData: portal.activation_steps,
         loadingClientData: false
       };
