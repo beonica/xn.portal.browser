@@ -94,7 +94,6 @@ export const Main = () => (state, actions) => {
               </p>
             </div>
           </div>
-          <hr />
         </div>
       </main>
     );
@@ -109,7 +108,6 @@ export const Main = () => (state, actions) => {
               Chave de cliente não informada.
             </div>
           </div>
-          <hr />
         </div>
       </main>
     );
@@ -123,7 +121,6 @@ export const Main = () => (state, actions) => {
             Chave de cliente não encontrada: <b>{state.notFoundKey}</b>.
           </div>
         </div>
-        <hr />
       </div>
     </main>
   );
