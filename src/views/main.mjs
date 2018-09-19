@@ -31,9 +31,8 @@ export const Main = () => (state, actions) => {
                     }${state.clientData === null ? " is-invalid" : ""}
                 `}
                     id="client"
-                    oninput={({ target: { value } }) =>
-                      actions.inputClient({ value })
-                    }
+                    maxlength="36"
+                    oninput={({ target }) => actions.inputClient({ target })}
                     placeholder="Por favor, insira aqui seu código de cliente"
                     style="text-align: center;"
                     type="text"

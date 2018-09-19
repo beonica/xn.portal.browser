@@ -11,7 +11,11 @@ export default {
         const client = window.localStorage.getItem("client");
 
         if (client) {
-          actions.inputClient({ value: client });
+          if (client.includes(clientKey)) {
+            actions.inputClient({ value: client });
+          } else {
+            window.localStorage.removeItem("client");
+          }
         }
 
         return { clientName };
@@ -23,10 +27,25 @@ export default {
     return { notFoundKey: null };
   },
 
-  inputClient: ({ value }) => (state, actions) => {
+  inputClient: ({ target, value }) => (state, actions) => {
+    if (!value) {
+      value = target.value;
+    }
+
     actions.setClient({ value });
 
-    if (value.length === 36) {
+    const clientKey = new URL(document.location).searchParams.get("key");
+
+    if (!value.includes(clientKey)) {
+      if (target) {
+        target.focus();
+        target.select();
+      }
+
+      return { client: value, clientData: null };
+    }
+
+    if (value.length === 36 && value.includes(clientKey)) {
       actions.loadPortal();
 
       return { loadingClientData: true };
